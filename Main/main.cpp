@@ -41,13 +41,13 @@ int main () {
         wavWrite(wav, Format);
         wavWrite(wav, SubChunk1Id);
         
-        write_as_bytes(wav, SubChunk1Size, 4);
-        write_as_bytes(wav, AudioFormat, 2);
-        write_as_bytes(wav, NumChannels, 2);
-        write_as_bytes(wav, SampleRate, 4);
-        write_as_bytes(wav, ByteRate, 4);
-        write_as_bytes(wav, BlockAlign, 2);
-        write_as_bytes(wav, BitsPerSample, 2);
+        writeBytes(wav, SubChunk1Size, 4);
+        writeBytes(wav, AudioFormat, 2);
+        writeBytes(wav, NumChannels, 2);
+        writeBytes(wav, SampleRate, 4);
+        writeBytes(wav, ByteRate, 4);
+        writeBytes(wav, BlockAlign, 2);
+        writeBytes(wav, BitsPerSample, 2);
 
         wavWrite(wav, SubChunk2Id);
         wavWrite(wav, SubChunk2Size);
@@ -59,18 +59,18 @@ int main () {
 
             double ch1 = amplitude * value;
 
-            write_as_bytes(wav, ch1, 2);
+            writeBytes(wav, ch1, 2);
         }
 
         int end_audio = ftell(wav);
 
         fseek(wav, start_audio - 4, SEEK_SET);
 
-        write_as_bytes(wav, end_audio - start_audio, 4);
+        writeBytes(wav, end_audio - start_audio, 4);
 
         fseek(wav, 4, SEEK_SET);
 
-        write_as_bytes(wav, end_audio - 8, 4);
+        writeBytes(wav, end_audio - 8, 4);
     }
 
     fclose(wav);

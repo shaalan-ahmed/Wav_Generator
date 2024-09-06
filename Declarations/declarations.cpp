@@ -1,6 +1,6 @@
 #include "declarations.h"
 
-void write_as_bytes(FILE* file, int value, int byte_size) {
+void writeBytes(FILE* file, int value, int byte_size) {
     fwrite(&value, byte_size, 1, file);
 }
 

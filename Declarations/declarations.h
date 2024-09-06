@@ -9,5 +9,5 @@
 
 using namespace std;
 
-void write_as_bytes(FILE* file, int value, int byte_size);
+void writeBytes(FILE* file, int value, int byte_size);
 void wavWrite(FILE* file, string s);
