@@ -49,4 +49,3 @@ After providing the inputs and pressing Enter, the `audio.wav`   file will be ge
 ## Note for the User
 
 This project is still under development and may lack safety features such as input validation.  
-New features will be added regularly.
